@@ -7,6 +7,11 @@ class AnnonceController < ApplicationController
   end
 
   def show
+    @annonce = Annonce.find(params[:id])
+  end
+
+  def new
+    @annonces = Annonce.new
   end
 
   def create
