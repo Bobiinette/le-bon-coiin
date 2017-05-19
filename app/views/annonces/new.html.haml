@@ -16,12 +16,14 @@
 			.field
 				%p
 					Description
-				%input{type: "text", name: "annonce[description]", id: "annonce_description"}
+				= f.text_field :description
 			.field
 				%p
 					Photo
-				%input{type: "text", name: "Photo", id: "annonce_photo"}
-			.action
+				= f.text_field :photo
+			%br
+			%br
+			.field
 				%input{type: "submit", name: "Commit", value: "Cree Annonce"}
 
 .row

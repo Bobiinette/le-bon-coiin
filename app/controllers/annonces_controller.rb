@@ -16,11 +16,9 @@ class AnnoncesController < ApplicationController
   def create
     @annonce = Annonce.new(annonce_params)
     if @annonce.save
-      flash[:alert] = "Votre annonce a bien été crée"
-      redirect_to action:index
+      redirect_to action: 'index'
     else
-      flash[:alert] = "Votre annonce n'a pas pu être crée"
-      render "new"
+      redirect_to action: 'index'
     end
   end
 
