@@ -1,5 +1,5 @@
 .row							
-	.col-sm-12
+	.col-md-12
 		.page-header
 			#content
 				%center
@@ -11,11 +11,16 @@
 		%li
 			= link_to "Créer une nouvelle annonce", new_annonce_path
 .row
-	%center
-		- @annonces.each do |an|
-			%h3
-				= an.titre
-			%p
-				= an.description
-			%li
-				= link_to 'Voir l\'annonce', an
+	.col-md-2
+	.col-md-10
+		%table.table.table-striped
+			%tbody
+				- @annonces.each do |an|
+					%tr
+						%h3
+							= an.titre
+						%p
+							= an.description
+						%li
+							= link_to 'Voir l\'annonce', an 
+			

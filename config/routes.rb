@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'utilisateur/index'
+
+  get 'utilisateur/show'
+
+  get 'utilisateur/new'
+
+	resources :annonce
 	resources :annonce
 	root 'annonce#index'
 

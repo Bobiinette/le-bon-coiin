@@ -1,9 +1,7 @@
 class AnnonceController < ApplicationController
 
-  # GET /articles
-  # GET /articles.json
   def index
-  	@annonces = Annonce.all.paginate page: params[:page], per_page: 4
+  	@annonces = Annonce.all
   end
 
   def show
@@ -28,6 +26,6 @@ class AnnonceController < ApplicationController
   private
 
   def annonce_params
-  	params.require(:annonce).permit(:titre, :description)
+  	params.require(:annonce).permit(:titre, :description, :prix, :photo)
   end
 end
