@@ -6,6 +6,26 @@
 					Création d'une nouvelle annonce
 
 .row
+	.col-md-1
+	.col-md-11
+		%form{id: "new_annonce", action: annonce_index_path, method: "post"}
+			%input{type: "hidden", name: "autenticity_token", value: "test"}
+			.field
+				%p
+					Titre
+				%input{type: "text", name: "annonce[titre]", id: "annonce_titre"}
+			.field
+				%p
+					Description
+				%input{type: "text", name: "annonce[description]", id: "annonce_description"}
+			.field
+				%p
+					Photo
+				%input{type: "text", name: "Photo", id: "annonce_photo"}
+			.action
+				%input{type: "submit", name: "Commit", value: "Cree Annonce"}
+
+.row
 	%center
 		%li
-			= link_to 'Back', annonce_index_path
+			= link_to 'Retour', annonce_index_path

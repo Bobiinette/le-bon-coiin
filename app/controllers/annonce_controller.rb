@@ -1,4 +1,5 @@
 class AnnonceController < ApplicationController
+  before_action :set_annonce, only: [:show, :edit, :update, :destroy]
 
   def index
   	@annonces = Annonce.all
