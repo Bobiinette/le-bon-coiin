@@ -9,13 +9,13 @@
 .row
 	%center
 		%li
-			= link_to "Créer une nouvelle annonce", new_annonce_path
+			= link_to "Créer une nouvelle annonce", annonces_new_path
 .row
 	.col-md-2
 	.col-md-10
 		%table.table.table-striped
 			%tbody
-				- @annonces.each do |an|
+				- @annonce.each do |an|
 					%tr
 						%h3
 							= an.titre

@@ -8,12 +8,11 @@
 .row
 	.col-md-1
 	.col-md-11
-		%form{id: "new_annonce", action: annonce_index_path, method: "post"}
-			%input{type: "hidden", name: "autenticity_token", value: "test"}
+		= form_for @annonce do |f|
 			.field
 				%p
 					Titre
-				%input{type: "text", name: "annonce[titre]", id: "annonce_titre"}
+				= f.text_field :titre
 			.field
 				%p
 					Description
@@ -28,4 +27,4 @@
 .row
 	%center
 		%li
-			= link_to 'Retour', annonce_index_path
+			= link_to 'Retour', annonces_index_path
