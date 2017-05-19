@@ -2,11 +2,10 @@ class AnnoncesController < ApplicationController
   before_action :set_annonce, only: [:show, :edit, :update, :destroy]
 
   def index
-  	@annonce = Annonce.all
+  	@annonces = Annonce.all
   end
 
   def show
-    @annonce = Annonce.find(params[:id])
   end
 
   def new
@@ -23,6 +22,10 @@ class AnnoncesController < ApplicationController
   end
 
   private
+
+  def set_annonce
+    @annonce = Annonce.find(params[:id])
+  end
 
   def annonce_params
   	params.require(:annonce).permit(:titre, :description, :prix, :photo)

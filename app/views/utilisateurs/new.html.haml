@@ -1,40 +1,48 @@
 .row
+	.col-md-12
+		.page-header
+			%h1
+				%center
+					Inscription
+.row
 	.col-md-2 
 	.col-md-8
 		.page-header
 			%h4
 				Veuillez renseigner les informations suivantes : 
 				%br
-				Nom :
-				%input{ type: "text", name: "nom", id: "nom" }
-				%br
-				Prénom :
-				%input{ type: "text", name: "prenom", id: "prenom"}
-				%br
-				Adresse Mail :
-				%input{ type: "email", name: "mail", id: "mail"}
-				%br
-				Numéro de téléphone:
-				%input{ type: "tel", name: "num", id: "num"}
-				%br
-				Promotion:
-				%select 
-					%option{value: "2012", selected: params[:promotion] == "2012"} 2012
-					%option{value: "2013", selected: params[:promotion] == "2013"} 2013
-					%option{value: "2014", selected: params[:promotion] == "2014"} 2014
-					%option{value: "2015", selected: params[:promotion] == "2015"} 2015
-					%option{value: "2016", selected: params[:promotion] == "2016"} 2016
-					%option{value: "2017", selected: params[:promotion] == "2017"} 2017
-					%option{value: "2018", selected: params[:promotion] == "2018"} 2018
-				%br
-				Pseudo :
-				%input{ type: "text", name: "pseudo", id: "pseudo"}
-				%br
-				Mot de Passe :
-				%input{ type: "password", name: "pass", id: "pass"}
-				%br
-				Avatar (via url/optionnel):
-				%input{ type: "url", name: "av", id: "av"}
+				= form_for @utilisateur do |f|
+					%p
+						Nom
+					= f.text_field :nom
+					%br
+					%p
+						Prénom
+					= f.text_field :prenom
+					%br
+					%p
+						Adresse Mail
+					= f.text_field :email
+					%br
+					%p
+						Numéro de téléphone
+					= f.text_field :telephone
+					%br
+					%p
+						Promotion
+					= f.select :promotion, [["2012", "2012"], ["2013", "2013"]]
+					%br
+					%p
+						Pseudo
+					= f.text_field :pseudo
+					%br
+					%p
+						Mot de Passe
+					= f.text_field :pass
+					%br
+					%p
+						Avatar (via url/optionnel)
+					= f.text_field :avatar
 				%br
 .row
 	%center

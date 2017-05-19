@@ -15,12 +15,12 @@
 	.col-md-10
 		%table.table.table-striped
 			%tbody
-				- @annonce.each do |an|
+				- @annonces.each do |annonce|
 					%tr
 						%h3
-							= an.titre
+							= annonce.titre
 						%p
-							= an.description
+							= annonce.description
 						%li
-							= link_to 'Voir l\'annonce', an 
+							= link_to 'Voir l\'annonce', annonce
 			

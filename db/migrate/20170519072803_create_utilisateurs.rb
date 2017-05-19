@@ -4,6 +4,8 @@ class CreateUtilisateurs < ActiveRecord::Migration[5.1]
       t.string :nom
       t.string :prenom
       t.string :email
+      t.string :pseudo
+      t.string :pass
       t.integer :promotion
       t.integer :telephone
       t.string :avatar
@@ -12,3 +14,4 @@ class CreateUtilisateurs < ActiveRecord::Migration[5.1]
     end
   end
 end
+
