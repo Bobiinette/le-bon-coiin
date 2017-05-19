@@ -1,5 +1,4 @@
 class Annonce < ApplicationRecord
-	belongs_to :utilisateurs
 	has_one :utilisateurs
 	validates :titre, presence: true
 	validates :description, presence: true

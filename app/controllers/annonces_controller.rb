@@ -13,7 +13,7 @@ class AnnoncesController < ApplicationController
   end
 
   def create
-    @annonce = Annonce.new(annonce_params)
+    @annonce = Annonce.create(annonce_params)
     if @annonce.save
       redirect_to action: 'index'
     else
@@ -28,6 +28,6 @@ class AnnoncesController < ApplicationController
   end
 
   def annonce_params
-  	params.require(:annonce).permit(:titre, :description, :prix, :photo)
+  	params.require(:annonce).permit(:titre, :description, :prix, :photo, :utilisateur)
   end
 end
