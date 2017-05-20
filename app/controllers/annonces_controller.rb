@@ -13,11 +13,13 @@ class AnnoncesController < ApplicationController
   end
 
   def create
-    @annonce = Annonce.create(annonce_params)
+    @utilisateur = Utilisateur.find(params[:utilisateur])
+    @annonce = @utilisateur.annonces.create(annonce_params)
     if @annonce.save
-      redirect_to action: 'index'
+      flash[:info] = "Salut"
+      redirect_to @annonce
     else
-      redirect_to action: 'index'
+      render 'new'
     end
   end
 

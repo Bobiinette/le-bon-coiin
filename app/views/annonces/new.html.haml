@@ -16,15 +16,19 @@
 			.field
 				%p
 					Description
-				= f.text_field :description
+				= f.text_area :description
 			.field
 				%p
 					Photo
-				= f.text_field :photo
+				= f.file_field :photo
+			.field
+				%p
+					Prix
+				= f.number_field :prix, step: 0.01
 			%br
 			%br
 			.field
-				%input{type: "submit", name: "Commit", value: "Cree Annonce"}
+				%input{type: "submit", name: "CommitAnnonce", value: "Cree Annonce"}
 
 .row
 	%center

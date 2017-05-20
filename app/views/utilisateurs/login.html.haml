@@ -1,0 +1,11 @@
+.row
+	.col-md-12
+		%center
+			= form_tag @utilisateur, method: :post do
+				%p
+					Pseudo
+					= text_field_tag :pseudo
+				%p
+					Mot de passe
+					= text_field_tag :pass
+				%input{type: "submit", name: "ConnectionUtilisateur", value: "Se connecter"}

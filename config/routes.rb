@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-	get 'utilisateurs/new'
-	get 'utilisateurs/show'
-	get 'annonces/index'
-	get 'annonces/new'
-	get 'annonces/show'
+	get 'utilisateurs/home' => 'utilisateurs#home'
+	post 'utilisateurs/login' => 'utilisateurs#login'
+	get 'utilisateurs/check' => 'utilisateurs#check'
+	get 'utilisateurs/new' => 'utilisateurs#new'
+	get 'utilisateurs/show' => 'utilisateurs#show'
+	get 'annonces/index' => 'annonces#index'
+	get 'annonces/new' => 'annonces#new'
+	get 'annonces/show' => 'annonces#show'
 	resources :utilisateurs
 	resources :annonces
 	root 'annonces#index'
