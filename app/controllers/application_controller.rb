@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
   before_action :utilisateur_courant
 
    def utilisateur_courant
-    if session[:id]
-      @utilisateur = Utilisateur.find(session[:id])
+    if session[:utilisateur_id]
+      @utilisateur = Utilisateur.find(session[:utilisateur_id])
     end
   end
 end

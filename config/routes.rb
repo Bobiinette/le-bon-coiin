@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 	get 'utilisateurs/home' => 'utilisateurs#home'
-	post 'utilisateurs/login' => 'utilisateurs#login'
-	get 'utilisateurs/check' => 'utilisateurs#check'
+	get 'utilisateurs/login' => 'utilisateurs#login'
+	post 'utilisateurs/login' => 'utilisateurs#check'
 	get 'utilisateurs/new' => 'utilisateurs#new'
-	get 'utilisateurs/show' => 'utilisateurs#show'
 	get 'annonces/index' => 'annonces#index'
 	get 'annonces/new' => 'annonces#new'
 	get 'annonces/show' => 'annonces#show'

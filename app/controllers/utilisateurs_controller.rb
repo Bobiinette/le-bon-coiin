@@ -6,19 +6,15 @@ class UtilisateursController < ApplicationController
   end
 
   def check
-    @utilisateur = User.where(name: params[:name], password: params[:password]).first
+    @utilisateur = Utilisateur.where(pseudo: params[:pseudo], pass: params[:pass]).first
     if @utilisateur
-      session[:id] = @utilisateur.id
-      flash[:info] = "Bienvenue #{@utilisateur.name} !"
-      redirect_to  "/annonnces/index"
+      session[:utilisateur_id] = @utilisateur.id
+      flash[:info] = "Bienvenue #{@utilisateur.pseudo} !"
+      redirect_to  "/annonces/index"
     else
-      session[:id] = nil
+      session[:utilisateur_id] = nil
       flash[:info] = "Échec de la connexion"
     end
-  end
-
-  def show
-  	@utilisateur = Utilisateur.find(params[:id])
   end
 
   def new
