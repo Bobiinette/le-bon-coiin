@@ -18,7 +18,8 @@ crossorigin="anonymous">
 			<h5>
 			<strong>
 				<div class="col-sm-1"><%= link_to 'Accueil', annonces_index_path %></div>
-				<div class="col-sm-2">				<% if @utilisateur %>
+				<div class="col-sm-2">				
+				<% if @utilisateur %>
 					<%= form_tag "/utilisateurs/login", method: :delete do %>
 						<input type="submit" name= "Déconnexion" value="Déconnexion" />
 					<% end %>

@@ -3,6 +3,13 @@ class UtilisateursController < ApplicationController
   end
 
   def login
+    if @utilisateur
+      session[:utilisateur_id] = @utilisateur.id
+      flash[:info] = "Bienvenue #{@utilisateur.pseudo} !"
+    else
+      session[:utilisateur_id] = nil
+      flash[:info] = "Échec de la connexion"
+    end
   end
 
   def logout
