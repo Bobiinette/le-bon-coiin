@@ -13,13 +13,17 @@ class AnnoncesController < ApplicationController
   end
 
   def create
-    @utilisateur = Utilisateur.find(params[:utilisateur])
-    @annonce = @utilisateur.annonces.create(annonce_params)
-    if @annonce.save
-      flash[:info] = "Salut"
-      redirect_to @annonce
+    if @utilisateur != nil
+      @annonce = @utilisateur.annonces.create(annonce_params)
+      if @annonce.save
+        flash[:info] = "Salut"
+        redirect_to @annonce
+      else
+        flash[:alert] = "Impossible de créer l'anonce"
+        render 'new'
+      end
     else
-      render 'new'
+      flash[:alert] = "Vous devez être connectées pour créer une annonce"
     end
   end
 

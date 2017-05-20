@@ -6,6 +6,9 @@
 				= @annonce.titre
 			%p
 				= @annonce.description
+			%p
+				Annonce crée par :
+				=Utilisateur.where(id: @annonce.utilisateur_id).first.pseudo
 .row
 	%center
 		%li

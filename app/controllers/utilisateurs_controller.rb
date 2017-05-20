@@ -31,13 +31,14 @@ class UtilisateursController < ApplicationController
   end
 
   def new
-  	@utilisateur = Utilisateur.new
+  	@utilisateur_temp = Utilisateur.new
+    @utilisateur = nil
   end
 
   def create
-    @utilisateur = Utilisateur.new(utilisateur_params)
-    if @utilisateur.save
-
+    @utilisateur_temp = Utilisateur.new(utilisateur_params)
+    if @utilisateur_temp.save
+      @utilisateur = @utilisateur_temp
       flash[:alert] = "Votre compte a bien été crée"
       redirect_to '/annonces/index'
     else
