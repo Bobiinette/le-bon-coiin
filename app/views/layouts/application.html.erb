@@ -18,24 +18,28 @@ crossorigin="anonymous">
 			<h5>
 			<strong>
 				<div class="col-sm-1"><%= link_to 'Accueil', annonces_index_path %></div>
-				<div class="col-sm-2">				<% if @utilisateur %>
+				<% if @utilisateur %>
+				<div class="col-sm-2">				
 					<%= form_tag "/utilisateurs/login", method: :delete do %>
-						<input type="submit" name= "Déconnexion" value="Déconnexion" />
-					<% end %>
+					<input type="submit" name= "Déconnexion" value="Déconnexion" /></div>
+				<div class="col-sm-6">
+					<titreBlanc> Connecté sur le compte %=@utilisateur.pseudo% </titreBlanc></div>
+				<% end %>
 				<% else %>
+				<div class="col-sm-2">	
 					<%= link_to 'Inscription', utilisateurs_new_path %>
-				<% end %> 
 				</div>
-				<div class="col-sm-3">
-					<titreBlanc><label>
-						Pseudo :</label></titreBlanc>
-						<input type="text" name="pseudo" id="pseudo"/></div>
-				<div class="col-sm-4">			
-					<titreBlanc><label>
-						Mot de Passe :</label></titreBlanc>
-						<input type="password" name="pass" id="pass"/></div>
-				<div class="col-sm-2">
-					<input type="submit" name="Connexion" value="Connexion"/></div></strong></h5></div></div></nav></br></br></br></br>
+				<form method="post" tag="utilisateur">
+					<div class="col-sm-3">
+						<titreBlanc><label>
+							Pseudo :</label></titreBlanc>
+							<input type="text" name="pseudo" id="pseudo"/></div>
+					<div class="col-sm-4">			
+						<titreBlanc><label>
+							Mot de Passe :</label></titreBlanc>
+							<input type="password" name="pass" id="pass"/></div>
+					<div class="col-sm-2">
+						<input type="submit" name="Connexion" value="Connexion"/></div></form><% end %> </strong></h5></div></div></nav></br></br></br></br>
 <center> <%= image_tag "/assets/logo_ENSIIE.png"%></center>
 <div><%= flash[:info] %></div>
 <div><%= flash[:alert] %></div>
