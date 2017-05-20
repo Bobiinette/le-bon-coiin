@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 	get 'utilisateurs/login' => 'utilisateurs#login'
 	post 'utilisateurs/login' => 'utilisateurs#check'
 	get 'utilisateurs/new' => 'utilisateurs#new'
+	delete 'utilisateurs/login' => 'utilisateurs#logout'
 	get 'annonces/index' => 'annonces#index'
 	get 'annonces/new' => 'annonces#new'
 	get 'annonces/show' => 'annonces#show'

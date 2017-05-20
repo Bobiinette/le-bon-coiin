@@ -11,9 +11,12 @@
 	- if @utilisateur != nil
 		%h3
 			%center
-				Bienvenu @utilisateur.prenom
-			%li
-				= link_to "Créer une nouvelle annonce", annonces_new_path
+				Bienvenu 
+				= @utilisateur.pseudo
+				%p
+					%h4
+						%li
+							= link_to "Créer une nouvelle annonce", annonces_new_path
 	- else
 		%center
 			%h3

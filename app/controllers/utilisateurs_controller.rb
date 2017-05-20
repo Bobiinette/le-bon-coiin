@@ -5,6 +5,12 @@ class UtilisateursController < ApplicationController
   def login
   end
 
+  def logout
+    session[:utilisateur_id] = nil
+    flash[:info] = "Vous êtes maintenant déconnecté."
+    redirect_to "/annonces/index"
+  end
+
   def check
     @utilisateur = Utilisateur.where(pseudo: params[:pseudo], pass: params[:pass]).first
     if @utilisateur
