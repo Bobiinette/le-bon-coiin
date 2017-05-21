@@ -1,15 +1,17 @@
 .row
 	.col-md-2
 	.col-md-8
-		.page-header
-			%h1
-				= @annonce.titre
+		%h1
+			= @annonce.titre
+		%p
+			= @annonce.description
+		%p
+			Annonce crée par :
+			=Utilisateur.where(id: @annonce.utilisateur_id).first.pseudo
+		- if @utilisateur.id == @annonce.utilisateur_id
 			%p
-				= @annonce.description
-			%p
-				Annonce crée par :
-				=Utilisateur.where(id: @annonce.utilisateur_id).first.pseudo
-.row
-	%center
-		%li
-			= link_to 'Retour', annonces_index_path
+				%li
+					= link_to 'Éditer l\'annonce', edit_annonce_path(@annonce)
+		%center
+			%li
+				= link_to 'Retour', annonces_index_path

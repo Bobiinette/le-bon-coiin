@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 	post 'utilisateurs/login' => 'utilisateurs#check'
 	get 'utilisateurs/new' => 'utilisateurs#new'
 	delete 'utilisateurs/login' => 'utilisateurs#logout'
+	delete 'annonces/destroy' => 'annonces#destroy'
+	get 'annonces/edit' => "annonces#edit"
 	get 'annonces/index' => 'annonces#index'
 	get 'annonces/new' => 'annonces#new'
 	get 'annonces/show' => 'annonces#show'

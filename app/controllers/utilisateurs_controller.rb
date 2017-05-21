@@ -1,5 +1,6 @@
 class UtilisateursController < ApplicationController
   def home
+    @annonces = Annonce.where(utilisateur_id: @utilisateur.id).all
   end
 
   def login

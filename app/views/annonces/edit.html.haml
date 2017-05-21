@@ -1,0 +1,36 @@
+.row
+	.col-md-12
+		.page-header
+			%h1
+				%center
+					Modification d'une annonce
+
+.row
+	.col-md-1
+	.col-md-11
+		= form_for @annonce do |f|
+			.field
+				%p
+					Titre
+				= f.text_field :titre
+			.field
+				%p
+					Description
+				= f.text_area :description
+			.field
+				%p
+					Photo
+				= f.file_field :photo
+			.field
+				%p
+					Prix
+				= f.number_field :prix, step: 0.01
+			%br
+			%br
+			.field
+				%input{type: "submit", name: "CommitAnnonce", value: "Éditer"}
+
+.row
+	%center
+		%li
+			= link_to 'Retour', annonces_index_path

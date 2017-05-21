@@ -8,6 +8,7 @@ href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap
 1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" 
 crossorigin="anonymous"> 
    <link rel="stylesheet" type="text/css" href="/assets/application.css">
+   <%= javascript_include_tag "application" %>
  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   </head>
  <html>
@@ -24,22 +25,27 @@ crossorigin="anonymous">
 						<input type="submit" name= "Déconnexion" value="Déconnexion" /></div>
 					<div class="col-sm-6">
 						<titreBlanc> Connecté sur le compte <%= @utilisateur.pseudo%> </titreBlanc></div>
-					<% end %>
+					<div class="col-sm-2">	
+						<%= link_to 'Mes annonces', "/utilisateurs/home" %>
+					</div>
+				<% end %>
 				<% else %>
 					<div class="col-sm-2">	
 						<%= link_to 'Inscription', utilisateurs_new_path %>
 					</div>
 				
 					<div class="col-sm-3">
-						<titreBlanc><label>
-							Pseudo :</label></titreBlanc>
-							<input type="text" name="pseudo" id="pseudo"/></div>
-					<div class="col-sm-4">			
-						<titreBlanc><label>
-							Mot de Passe :</label></titreBlanc>
-							<input type="password" name="pass" id="pass"/></div>
-					<div class="col-sm-2">
-						<input type="submit" name="Connexion" value="Connexion"/>
+						<%= form_tag "/utilisateurs/login", method: :post do %>
+							<titreBlanc><label>
+								Pseudo :</label></titreBlanc>
+								<input type="text" name="pseudo" id="pseudo"/></div>
+						<div class="col-sm-4">			
+							<titreBlanc><label>
+								Mot de Passe :</label></titreBlanc>
+								<input type="password" name="pass" id="pass"/></div>
+						<div class="col-sm-2">
+							<input type="submit" name="Connexion" value="Connexion"/>
+						<% end %>
 					</div>
 				<% end %>
 			</strong>
