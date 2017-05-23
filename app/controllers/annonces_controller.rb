@@ -50,7 +50,7 @@ class AnnoncesController < ApplicationController
   def signaler
     if @utilisateur
       UsermailerMailer.signal_mail().deliver
-      flash[:info] = "L'annonce @annonce.titre a été signalée"
+      flash[:info] = "L'annonce a été signalée"
       redirect_to '/annonces/index'
     end
   end
