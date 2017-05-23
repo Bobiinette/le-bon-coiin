@@ -42,9 +42,8 @@ class AnnoncesController < ApplicationController
 
   def destroy
     @annonce.destroy
-    @annonce = nil
+    redirect_to '/annonces/index'
     flash[:info] = "Votre annonce a bien été supprimée"
-    redirect_to 'index'
   end
 
   def signaler

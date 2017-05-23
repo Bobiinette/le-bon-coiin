@@ -5,12 +5,13 @@ Rails.application.routes.draw do
 	get 'utilisateurs/new' => 'utilisateurs#new'
 	delete 'utilisateurs/login' => 'utilisateurs#logout'
 	delete 'annonces/destroy' => 'annonces#destroy'
+	get 'annonces/destroy' => 'annonces#index'
 	get 'annonces/edit' => "annonces#edit"
 	get 'annonces/index' => 'annonces#index'
 	get 'annonces/new' => 'annonces#new'
 	get 'annonces/show' => 'annonces#show'
-	post "/annonces/signaler" => 'annonces#signaler'
-	get "/annonces/signaler" => 'annonces#index'
+	post "annonces/signaler" => 'annonces#signaler'
+	get "annonces/signaler" => 'annonces#index'
 	resources :utilisateurs
 	resources :annonces
 	root 'annonces#index'
