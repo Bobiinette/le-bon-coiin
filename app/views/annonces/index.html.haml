@@ -38,12 +38,12 @@
 						.col-md-2
 							%p
 								%img{ src: annonce.photo, height: "150", width: "150"}
-						.col-md-2
-							%h2
-								Prix : 
-								= annonce.prix
-								€
 						- if @utilisateur != nil
+							.col-md-2
+								%h2
+									Prix : 
+									= annonce.prix
+									€
 							.col-md-12
 								%p
 									= annonce.description

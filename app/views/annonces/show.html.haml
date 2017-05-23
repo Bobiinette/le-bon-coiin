@@ -1,29 +1,29 @@
 .row
 	.col-md-2
 	.col-md-8
-			%h2
-				Prix : 
-				= @annonce.prix
-				€
-			%h1
-				= @annonce.titre
+		%h2
+			Prix : 
+			= @annonce.prix
+			€
+		%h1
+			= @annonce.titre
+		%p
+			= @annonce.description
+		%p	
+			%img{ src: @annonce.photo, height: "400", width: "400"}
+		%p
+			Annonce crée par :
+			=Utilisateur.where(id: @annonce.utilisateur_id).first.pseudo
+		- if @utilisateur.id == @annonce.utilisateur_id
 			%p
-				= @annonce.description
-			%p	
-				%img{ src: @annonce.photo, height: "400", width: "400"}
-			%p
-				Annonce crée par :
-				=Utilisateur.where(id: @annonce.utilisateur_id).first.pseudo
-			- if @utilisateur.id == @annonce.utilisateur_id
-				%p
-					%li
-						= link_to 'Éditer l\'annonce', edit_annonce_path(@annonce)
-				= form_tag @annonce, method: :delete do
-					%input{type: "submit", name: "Supprimer", value: "Supprimer"}
-
-			= form_tag '/annonces/signaler/', method: :post do
-				%input{type: "submit", name: "Signaler", value: "Signaler"}
-
-			%center
 				%li
-					= link_to 'Retour', annonces_index_path
+					= link_to 'Éditer l\'annonce', edit_annonce_path(@annonce)
+			= form_tag @annonce, method: :delete do
+				%input{type: "submit", name: "Supprimer", value: "Supprimer"}
+
+		= form_tag '/annonces/signaler/', method: :post do
+			%input{type: "submit", name: "Signaler", value: "Signaler"}
+
+		%center
+			%li
+				= link_to 'Retour', annonces_index_path
