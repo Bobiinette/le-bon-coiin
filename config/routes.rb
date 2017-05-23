@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 	get 'annonces/index' => 'annonces#index'
 	get 'annonces/new' => 'annonces#new'
 	get 'annonces/show' => 'annonces#show'
+	post "/annonces/signaler" => 'annonces#signaler'
+	get "/annonces/signaler" => 'annonces#index'
 	resources :utilisateurs
 	resources :annonces
 	root 'annonces#index'

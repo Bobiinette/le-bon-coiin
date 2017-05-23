@@ -47,8 +47,15 @@ class AnnoncesController < ApplicationController
     redirect_to 'index'
   end
 
-  private
+  def signaler
+    if @utilisateur
+      UsermailerMailer.sample_mail(@utilisateur, "Votre annonce a été signalée comme inapropriée").deliver
+      flash[:info] = "L'annonce a été signalée"
+      redirect_to 'index'
+    end
+  end
 
+  private
   def set_annonce
     @annonce = Annonce.find(params[:id])
   end

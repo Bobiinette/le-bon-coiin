@@ -49,3 +49,6 @@
 									%p
 										%li
 											= link_to 'Éditer l\'annonce', edit_annonce_path(annonce)
+								= form_tag '/annonces/signaler', method: :post do
+									%input{type: "submit", name: "Signaler", value: "Signaler"}
+
