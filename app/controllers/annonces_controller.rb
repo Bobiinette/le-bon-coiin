@@ -49,9 +49,9 @@ class AnnoncesController < ApplicationController
 
   def signaler
     if @utilisateur
-      UsermailerMailer.sample_mail(@utilisateur, "Votre annonce a été signalée comme inapropriée").deliver
-      flash[:info] = "L'annonce a été signalée"
-      redirect_to 'index'
+      UsermailerMailer.signal_mail().deliver
+      flash[:info] = "L'annonce @annonce.titre a été signalée"
+      redirect_to '/annonces/index'
     end
   end
 

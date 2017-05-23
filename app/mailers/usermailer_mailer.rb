@@ -2,8 +2,7 @@ class UsermailerMailer < ApplicationMailer
 	default from: 'nicolasensiietestprojets@gmail.com'
 	layout 'mailer'
 
-	def sample_mail(utilisateur, objet)
-		@user = utilisateur
-		mail(:to => @user.email, :subject => objet)
+	def signal_mail()
+		mail(:to => 'nicolasensiietestprojets@gmail.com', :subject => "Une annonce a été repérée comme abusive")
 	end
 end
