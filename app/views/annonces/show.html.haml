@@ -5,6 +5,8 @@
 			= @annonce.titre
 		%p
 			= @annonce.description
+		%p	
+			%img{ src: @annonce.photo, height: "400", width: "400"}
 		%p
 			Annonce crée par :
 			=Utilisateur.where(id: @annonce.utilisateur_id).first.pseudo
